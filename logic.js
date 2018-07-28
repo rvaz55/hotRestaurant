@@ -1,6 +1,7 @@
 // Dependencies
 // ===========================================================
 var express = require("express");
+var path = require("path");
 
 var app = express();
 var PORT = 3000;
@@ -25,12 +26,17 @@ var PORT = 3000;
 //     id: "jj"
 // }];
 
-// // Routes
-// // // ===========================================================
-// app.get("/", function(req, res) {
-//   res.send("Welcome to the Star Wars Page!");
-// });
-
+// Routes
+// // ===========================================================
+app.get("/", function(req, res) {
+  res.sendFile(path.join(__dirname, "home.html"));
+});
+app.get("/makeRes", function(req, res) {
+  res.sendFile(path.join(__dirname, "makeRes.html"));
+});
+app.get("/viewRes", function(req, res) {
+  res.sendFile(path.join(__dirname, "viewRes.html"));
+});
 // Listener
 // ===========================================================
 app.listen(PORT, function() {
